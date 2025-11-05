@@ -1,3 +1,23 @@
+# --- ML & data artifacts ---
+mlruns/
+artifacts/
+models/
+*.log
+*.h5
+*.pkl
+*.joblib
+*.ckpt
+
+# --- Data files ---
+data/
+*.csv
+*.tsv
+*.json
+*.xlsx
+*.parquet
+*.zip
+*.gz
+
 # --- Python ---
 __pycache__/
 *.py[cod]
@@ -27,10 +47,6 @@ ENV/
 *.tfvars
 *.tfplan
 
-# --- MLflow cache (if used) ---
-mlruns/
-mlartifacts/
-
 # --- VSCode ---
 .vscode/
 
@@ -51,7 +67,6 @@ htmlcov/
 
 # --- Docker ---
 *.pid
-*.log
 docker-compose.override.yml
 
 # --- Terraform (if used) ---
