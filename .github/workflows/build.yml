@@ -34,6 +34,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
+      - name: Create directories for datasets
+        run: mkdir -p data/raw    
+
       - name: Download Adult dataset
         run: |
           curl -o data/raw/adult.data https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
