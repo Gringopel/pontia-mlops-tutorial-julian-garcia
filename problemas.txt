@@ -1,0 +1,20 @@
+El único problema que me he encontrado ha sido al ejecutarse por primera vez el workflow Build.
+El error surgia porque no existia el directorio data/raw y no podía guardar los archivos adult.data y adult.test.
+
+A continuación se muestra el error del workflow:
+Run curl -o data/raw/adult.data https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Warning: Failed to open the file data/raw/adult.data: No such file or directory
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (23) Failure writing output to destination
+Error: Process completed with exit code 23.
+
+Para corregir el error he creado un step antes de realizar la descarga del dataset. En el step creo el directorio data/raw.
+
+A continuación se muestra el step (La opcion -p crea los directorios de forma recursiva y no lanza excepcion si ya existen):
+- name: Create directories for datasets
+        run: mkdir -p data/raw 
